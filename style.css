@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+.card {
+  background: #1e293b;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card a {
+  text-decoration: none;
+  color: white;
+}
