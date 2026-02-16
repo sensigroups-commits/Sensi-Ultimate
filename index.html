@@ -4,14 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mini App</title>
+
 <link rel="stylesheet" href="style.css">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-<body>
+
+<body class="dark">
 
 <header>
-  <h2 id="welcome"></h2>
-  <button onclick="toggleTheme()">🌙</button>
+  <h2 id="welcome">Mini App</h2>
+
+  <!-- Day / Night Switch حرفه‌ای -->
+  <label class="daynight">
+    <input type="checkbox" id="themeToggle">
+    <div class="toggle">
+      <div class="sun-moon"></div>
+      <div class="stars"></div>
+    </div>
+  </label>
 </header>
 
 <input type="text" id="search" placeholder="جستجو..." onkeyup="searchItems()">
@@ -19,21 +29,37 @@
 <div id="categories"></div>
 <div id="content"></div>
 
-<button class="admin-btn" onclick="openAdmin()">پنل ادمین</button>
+<button class="admin-btn" onclick="openAdmin()">⚙️</button>
 
-<div id="adminPanel" class="modal" onclick="closeAdmin()">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <input type="password" id="adminPass" placeholder="رمز">
+<!-- ADMIN MODAL -->
+<div id="adminPanel" class="modal">
+  <div class="modal-box">
+    <h3>پنل مدیریت</h3>
+
+    <input type="password" id="adminPass" placeholder="رمز ورود">
     <button onclick="loginAdmin()">ورود</button>
 
     <div id="adminContent" style="display:none;">
+
       <input type="text" id="title" placeholder="عنوان">
-      <input type="text" id="image" placeholder="لینک تصویر">
-      <input type="text" id="link" placeholder="لینک دانلود یا موزیک">
+      <input type="text" id="image" placeholder="لینک عکس">
+      <input type="text" id="link" placeholder="لینک فیلم / موزیک">
       <input type="text" id="category" placeholder="دسته بندی">
-      <input type="number" id="height" placeholder="ارتفاع بنر (مثلا 200)">
+      <input type="number" id="height" placeholder="ارتفاع بنر مثلا 250">
+
+      <select id="type">
+        <option value="normal">فیلم / سریال</option>
+        <option value="music">موزیک</option>
+      </select>
+
       <button onclick="addItem()">اضافه کن</button>
+
+      <hr>
+      <div id="manageList"></div>
+
     </div>
+
+    <button onclick="closeAdmin()">بستن</button>
   </div>
 </div>
 
