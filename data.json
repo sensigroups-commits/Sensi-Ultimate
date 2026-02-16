@@ -1,12 +1,18 @@
 [
   {
     "title": "سریال جدید 2026",
-    "image": "https://example.com/banner1.jpg",
-    "link": "https://t.me/yourchannel/123"
+    "image": "https://via.placeholder.com/600x300",
+    "link": "https://t.me/yourchannel/123",
+    "category": "سریال",
+    "height": 200,
+    "type": "normal"
   },
   {
     "title": "موزیک جدید",
-    "image": "https://example.com/banner2.jpg",
-    "link": "https://t.me/yourchannel/456"
+    "image": "https://via.placeholder.com/600x300",
+    "link": "https://example.com/music.mp3",
+    "category": "موزیک",
+    "height": 200,
+    "type": "music"
   }
 ]
