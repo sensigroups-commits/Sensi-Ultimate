@@ -21,8 +21,8 @@
 
 <button class="admin-btn" onclick="openAdmin()">پنل ادمین</button>
 
-<div id="adminPanel" class="modal">
-  <div class="modal-content">
+<div id="adminPanel" class="modal" onclick="closeAdmin()">
+  <div class="modal-content" onclick="event.stopPropagation()">
     <input type="password" id="adminPass" placeholder="رمز">
     <button onclick="loginAdmin()">ورود</button>
 
