@@ -4,30 +4,38 @@ body {
   transition:0.3s;
 }
 
-body.dark { background:#0f172a; color:white; }
-body.light { background:white; color:black; }
+body.dark {
+  background:#0f172a;
+  color:white;
+}
+
+body.light {
+  background:#f3f4f6;
+  color:black;
+}
 
 header {
   display:flex;
   justify-content:space-between;
-  padding:10px;
+  align-items:center;
+  padding:15px;
 }
 
-input {
+input, select {
   width:90%;
-  margin:10px auto;
+  margin:8px auto;
   padding:8px;
   display:block;
-  border-radius:8px;
+  border-radius:10px;
   border:none;
 }
 
 .card {
   margin:15px;
-  border-radius:15px;
+  border-radius:16px;
   overflow:hidden;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
-  animation:fadeIn 0.5s ease;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  animation:fade .4s ease;
 }
 
 .card img {
@@ -39,14 +47,10 @@ input {
   padding:10px;
 }
 
-audio {
-  width:100%;
-}
-
 button {
   padding:8px 12px;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   cursor:pointer;
 }
 
@@ -54,25 +58,92 @@ button {
   position:fixed;
   bottom:20px;
   right:20px;
+  font-size:20px;
+  border-radius:50%;
+  width:50px;
+  height:50px;
 }
 
+/* مودال */
 .modal {
   display:none;
   position:fixed;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
 }
 
-.modal-content {
+.modal-box {
   background:white;
   padding:20px;
-  margin:100px auto;
+  border-radius:15px;
   width:90%;
-  border-radius:10px;
+  max-height:80%;
+  overflow:auto;
 }
 
-@keyframes fadeIn {
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:translateY(0);}
+/* ===== DAY NIGHT SWITCH ===== */
+
+.daynight {
+  position: relative;
+  width: 80px;
+  height: 40px;
+}
+
+.daynight input {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.4s;
+  background: linear-gradient(to right, #87ceeb, #b0e0ff);
+}
+
+.sun-moon {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  background: #ffd93b;
+  transition: 0.4s;
+  box-shadow: 0 0 10px rgba(255,217,59,0.8);
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
+  transition: 0.4s;
+}
+
+.daynight input:checked + .toggle {
+  background: linear-gradient(to right, #0f2027, #203a43);
+}
+
+.daynight input:checked + .toggle .sun-moon {
+  transform: translateX(40px);
+  background: #ddd;
+  box-shadow: inset -6px -4px 0px 0px #bbb;
+}
+
+.daynight input:checked + .toggle .stars {
+  opacity: 1;
+}
+
+@keyframes fade {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
 }
